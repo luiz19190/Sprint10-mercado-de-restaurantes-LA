@@ -110,4 +110,4 @@ notebook.
 3. Abra `Sprint 10 - Mercado de Restaurantes LA.ipynb` e execute as células em ordem.
 
 O caminho do arquivo é controlado pela variável `path` na célula de setup — basta trocar essa linha
-para rodar na plataforma TripleTen (`/datasets/`) ou no Google Colab (`/content/drive/MyDrive/`).
+para rodar na sua plataforma.
