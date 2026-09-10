@@ -8,8 +8,8 @@ se o negócio se sustenta depois que o efeito novidade passar — ou seja, se **
 estabelecimento** e **número de assentos** escolhidos batem com o que o mercado de LA mostra, e se
 o modelo tem espaço para virar rede.
 
-> ✅ **Status:** análise concluída. Passos 1 e 2 escritos com conclusão em cada etapa, seção 3 com
-> as recomendações finais. Falta apenas a apresentação em PDF.
+> ✅ **Status:** projeto concluído. Passos 1 e 2 escritos com conclusão em cada etapa, seção 3 com
+> as recomendações finais e seção 4 com o deck de 8 slides para investidores, em PDF.
 
 ## Estrutura do projeto
 
@@ -19,7 +19,7 @@ o modelo tem espaço para virar rede.
 │   └── rest_data_us_upd.csv    # estabelecimentos de LA (nome, tipo, rede, endereço, assentos)
 ├── images/                     # gráficos exportados, usados na apresentação
 ├── presentation/
-│   └── outline.md              # roteiro slide a slide da apresentação aos investidores
+│   └── Sprint10-apresentacao-mercado-restaurantes-LA.pdf   # deck de 8 slides para investidores
 ├── .gitignore
 ├── LICENSE                     # MIT
 └── README.md
@@ -27,7 +27,8 @@ o modelo tem espaço para virar rede.
 
 ## Os dados
 
-`rest_data_us_upd.csv` — 9.651 estabelecimentos de Los Angeles.
+`rest_data_us_upd.csv` — 9.651 registros de estabelecimentos de Los Angeles; 9.592 depois de remover
+3 registros sem `chain` e 56 duplicados.
 
 | coluna | descrição |
 |---|---|
@@ -57,8 +58,8 @@ tipos e plausibilidade dos valores.
 | 2.8 | Ruas com um único restaurante |
 | 2.9 | Distribuição de assentos nas ruas movimentadas |
 
-**Passo 3 — Apresentação.** Deck para investidores em PDF, roteiro em
-[`presentation/outline.md`](presentation/outline.md).
+**Passo 3 — Apresentação.** Deck de 8 slides para investidores em PDF:
+[`presentation/Sprint10-apresentacao-mercado-restaurantes-LA.pdf`](presentation/Sprint10-apresentacao-mercado-restaurantes-LA.pdf).
 
 ## Principais achados
 
@@ -66,8 +67,9 @@ tipos e plausibilidade dos valores.
   `Cafe` são 426, 4,4% do mercado, terceiro entre seis tipos e o maior da cauda.
 - **Café é o formato que mais vira rede.** 60,6% dos cafés pertencem a alguma rede, contra 37,9% da
   cidade, e a marca de café tem 4,53 unidades em média, a maior replicação de todos os tipos.
-- **Mas não existe rede de café média.** Das 57 marcas, Starbucks (119 unidades) e Coffee Bean (55)
-  concentram 67,4% de tudo, e outras 40 têm uma loja só.
+- **Mas, acima de 9 lojas, só existem as duas gigantes.** Das 57 marcas, Starbucks (119 unidades) e
+  Coffee Bean (55) concentram 67,4% de tudo, 15 têm de 2 a 9 lojas e 40 têm uma loja só. Entre 10 e
+  54 unidades não há nenhuma marca.
 - **Tamanho de rede e tamanho de loja são independentes.** Pearson -0,001, Spearman 0,019. Crescer
   em unidades não exige loja maior.
 - **O mercado é concentrado.** 46,2% das ruas têm um único estabelecimento e somam 3,9% da oferta;
@@ -85,12 +87,20 @@ unidades), e o mais homogêneo dos seis, único com dispersão menor que a próp
 **Assentos: de 20 a 25.** Três medidas convergem: a mediana dos cafés de LA é 20, a dos cafés em rua
 movimentada é 22,5, e as duas redes que escalaram operam com 25 (Starbucks) e 22 (Coffee Bean).
 
-**Rede: recomendo, com condição.** O mercado comporta e o formato escala, mas o espaço entre 1 e 119
-unidades está vazio. A decisão exige um gatilho definido desde o início, quantas unidades em quanto
+**Rede: recomendo, com condição.** O mercado comporta e o formato escala, mas entre 10 e 54
+unidades não há nenhuma rede de café. A decisão exige um gatilho definido desde o início, quantas unidades em quanto
 tempo, com o capital reservado antes da primeira.
 
 O raciocínio completo, com as evidências apontando para cada passo numerado, está na seção 3 do
 notebook.
+
+## Histórico de correções
+
+- **2026-09-10.** Conferência do projeto contra os dados recalculados do CSV. O slide 4 do deck, este
+  README e o notebook (2.1, 2.3, 3.4 e 4) diziam que não existe rede de café média, "ou 1 loja, ou
+  119". Isso não se sustenta: a Coffee Bean tem 55 lojas e 15 marcas têm de 2 a 9. O vazio real é
+  de 10 a 54 unidades. Também corrigidos Fast Food (11,1%, não 11,0%), Bakery (3,0%, não 2,9%) e o
+  roteiro `outline.md`, que era citado aqui mas não existe no repositório.
 
 ## Tecnologias utilizadas
 
